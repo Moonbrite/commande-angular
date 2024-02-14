@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.border-black {
+  border: 1px solid black;
+  margin: 5px;
+  padding: 5px;
+  .les-composant{
+    display: flex;
+  }
+}

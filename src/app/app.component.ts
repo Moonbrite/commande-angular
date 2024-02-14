@@ -1,13 +1,30 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {LaCarteComponent} from "./component/la-carte/la-carte.component";
+import {MaCommandeComponent} from "./component/ma-commande/ma-commande.component";
+import {Produit} from "./models/produit";
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,AppComponent,LaCarteComponent,MaCommandeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+
   title = 'exo-carte';
+  produit?:Produit;
+
+  commandes?: Produit[] = [];
+
+  voteEmit($event: Produit) {
+    this.produit = $event;
+    if (this.commandes){
+      this.commandes.push($event)
+    }
+    console.log(this.commandes)
+  }
+
 }
