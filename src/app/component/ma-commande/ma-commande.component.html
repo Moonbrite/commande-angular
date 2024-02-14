@@ -1,0 +1,13 @@
+<div class="border-black commande">
+  Commande
+  <div *ngIf="order && order.length > 0">
+    <ul *ngFor="let produit of order">
+      <li>
+        Nom du produit : {{ produit.nom }}
+        Prix : {{ produit.prix }}
+      </li>
+    </ul>
+    <h3>Total : {{ calculateTotal() }}</h3>
+  </div>
+  <div *ngIf="!order || order.length === 0">Aucune commande ne s'affiche</div>
+</div>
