@@ -1,13 +1,18 @@
 <div class="border-black carte">
-  <p>Carte</p>
-  <ul *ngFor="let produit of produits">
-    <li>{{produit.nom}}</li>
-    <li >{{produit.prix | currency: 'EUR'}}</li>
-    <li ><img src="{{produit.image}}"></li>
-    <li>
-      <button (click)="produitAddOnCommande(produit)">
-      Ajouter dans ma commande
-    </button>
-    </li>
-  </ul>
+  <mat-card *ngFor="let produit of produits" class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{produit.nom}}</mat-card-title>
+      <mat-card-subtitle>{{produit.prix | currency: 'EUR'}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{produit.image}}" alt="{{produit.image}}">
+    <mat-card-content>
+      <p>{{produit.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="produitAddOnCommande(produit)" mat-stroked-button color="primary">
+        Ajouter dans ma commande</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
+

@@ -1,11 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-.border-black {
-  border: 1px solid black;
-  margin: 5px;
-  padding: 5px;
-}
-.border-black .les-composant {
+.les-composant {
+  margin-top: 45px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #e0e0e0;
 }
 
 /*# sourceMappingURL=styles.css.map */

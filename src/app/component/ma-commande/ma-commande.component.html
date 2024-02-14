@@ -1,13 +1,26 @@
 <div class="border-black commande">
-  Commande
-  <div *ngIf="order && order.length > 0">
-    <ul *ngFor="let produit of order">
-      <li>
-        Nom du produit : {{ produit.nom }}
-        Prix : {{ produit.prix }}
+  <h1>Commande</h1>
+  <div *ngIf="getUniqueProducts() && getUniqueProducts().length > 0">
+    <ul>
+      <li *ngFor="let item of getUniqueProducts()">
+        <h3>
+          {{ item.produit.nom }} ({{ item.count }} fois)
+          Prix : {{ item.produit.prix | currency: 'EUR' }}
+        </h3>
+        <span>
+          <svg  *ngIf=" item.count == 1" (click)="removeOneUnit(item.produit)" width="25" height="25" fill="none" stroke="#890101" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z"></path>
+            <path d="m8.5 15.5 7-7"></path>
+            <path d="m9.5 9.5-1-1"></path>
+            <path d="m15.5 15.5-1-1"></path>
+          </svg>
+          <svg *ngIf=" item.count != 1" (click)="removeOneUnit(item.produit)" width="25" height="25" fill="none" stroke="#890101" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.25 12h14"></path>
+          </svg>
+        </span>
       </li>
     </ul>
-    <h3>Total : {{ calculateTotal() }}</h3>
+    <h2>Total : {{ calculateTotal() | currency: 'EUR'}}</h2>
   </div>
-  <div *ngIf="!order || order.length === 0">Aucune commande ne s'affiche</div>
+  <div *ngIf="!getUniqueProducts() || getUniqueProducts().length === 0">Votre commande et vide</div>
 </div>

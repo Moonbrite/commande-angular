@@ -1,8 +1,21 @@
 .carte {
-width: 60vw;
+  width: 60vw;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 img{
-  width: 250px;
-  height: 250px;
-  object-fit: contain;
+  width: 100%;
+  min-width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+p{
+  margin: 10px 0;
+}
+
+.mat-mdc-card-actions{
+  justify-content: center;
 }
