@@ -6,9 +6,9 @@ export class Produit  {
     this.id = id;
     this.description = description
   }
-  id?:number;
-  nom?:string;
-  image?:string;
-  prix?:number;
-  description?:string;
+  id:number;
+  nom:string;
+  image:string;
+  prix:number;
+  description:string;
 }

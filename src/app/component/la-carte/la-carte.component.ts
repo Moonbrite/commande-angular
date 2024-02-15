@@ -21,7 +21,6 @@ export class LaCarteComponent {
   @Output() voteEmitter = new EventEmitter<Produit>();
 
 
-
   produits:Produit [] = [
     new Produit('Burger Menu','https://www.shutterstock.com/image-photo/classic-hamburger-stock-photo-isolated-600nw-2282033179.jpg',12,1,"Le burger de ouf"),
     new Produit('Pizza Menu','https://www.galbani.fr/wp-content/uploads/2017/07/Image7.jpg',14,2,"La pizza de ouf"),
@@ -31,12 +30,9 @@ export class LaCarteComponent {
     new Produit('Bifteck Menu','https://images.ricardocuisine.com/services/recipes/1x1/9240.jpg',35,6,"Le bifteck de ouuuufff"),
   ]
 
-  order : Produit[]= [];
-
 
   produitAddOnCommande(produit: Produit) {
     this.voteEmitter.emit(produit);
-    this.order.push(produit);
   }
 
 }

@@ -15,15 +15,11 @@ import {Produit} from "./models/produit";
 export class AppComponent {
 
   title = 'exo-carte';
-  produit?:Produit;
 
-  commandes?: Produit[] = [];
+  commandes: Produit[] = [];
 
   voteEmit($event: Produit) {
-    this.produit = $event;
-    if (this.commandes){
-      this.commandes.push($event)
-    }
+    this.commandes.push($event)
     console.log(this.commandes)
   }
 

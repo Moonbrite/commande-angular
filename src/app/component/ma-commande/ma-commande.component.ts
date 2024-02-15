@@ -16,10 +16,9 @@ import {AppComponent} from "../../app.component";
 })
 export class MaCommandeComponent {
 
-  @Input() order?: Produit [] = [];
+  @Input() order: Produit [] = [];
 
   calculateTotal(): number {
-    // @ts-ignore
     return this.order.reduce((total, produit) => total + produit.prix, 0);
   }
 
@@ -29,14 +28,12 @@ export class MaCommandeComponent {
     if (this.order && this.order.length > 0) {
       this.order.forEach(produit => {
         if (!uniqueProductsMap.has(<number>produit.id)) {
-          // @ts-ignore
+
             uniqueProductsMap.set(produit.id, {produit: produit, count: 1});
         } else {
-          // @ts-ignore
           const existingProduct = uniqueProductsMap.get(produit.id);
           if (existingProduct) {
             existingProduct.count++;
-            // @ts-ignore
             uniqueProductsMap.set(produit.id, existingProduct);
           }
         }
@@ -47,10 +44,9 @@ export class MaCommandeComponent {
   }
 
   removeOneUnit(produit: Produit): void {
-    // @ts-ignore
+
     const index = this.order.findIndex(p => p.id === produit.id);
     if (index !== -1) {
-      // @ts-ignore
       this.order.splice(index, 1);
     }
   }
